@@ -9,7 +9,7 @@ export default class HelloWorldApp extends Component {
     return (
       <View style={ styles.container }>
         <Text style={ styles.textDefault }>Hello, world!</Text>
-        <Image source={ pictureURI } style={{width: 193, height: 110}} />
+        <Image source={ pictureURI } style={ styles.picture } />
       </View>
     );
   }
@@ -27,5 +27,9 @@ const styles = StyleSheet.create({
   textDefault:{
     backgroundColor: '#777777',
     color: '#000000'
+  },
+  picture: {
+    width: 250,
+    height: 150
   }
 })
