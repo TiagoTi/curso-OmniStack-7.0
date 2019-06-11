@@ -15,4 +15,4 @@ mongoose.connect(
 
 app.use(require('./routes'))
 
-app.listen(3333)
+app.listen(process.env.APP_SERVER_PORT)
