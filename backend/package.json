@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
+  }, 
+  "scripts": {
+    "dev": "nodemon src/index.js"
   }
 }
