@@ -1,8 +1,12 @@
 const express = require('express')
 
+const multer = require('multer')
+
 const routes = express.Router()
 
 const PostController = require('./controlles/PostController')
+
+const upload = multer()
 
 
 routes.get('/', (req,res)=>{
@@ -10,12 +14,7 @@ routes.get('/', (req,res)=>{
 })
 
 
-routes.post('/posts', (req,res)=>{
-    console.log(req.params)
-    console.log(req.ip)
-    req.on('data', (data)=>{
-        console.log(data.toString());
-    })
+routes.post('/posts', upload.single('image'), (req,res)=>{
     PostController.store(req, res)
 })
 
