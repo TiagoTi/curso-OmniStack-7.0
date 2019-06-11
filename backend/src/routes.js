@@ -21,4 +21,9 @@ routes.post('/posts', upload.single('image'), (req,res)=>{
 })
 
 
+routes.get('/posts', (req,res)=>{
+    PostController.index(req, res)
+})
+
+
 module.exports = routes
