@@ -6,7 +6,9 @@ const routes = express.Router()
 
 const PostController = require('./controlles/PostController')
 
-const upload = multer()
+const uploadConfig = require('./config/upload')
+
+const upload = multer(uploadConfig)
 
 
 routes.get('/', (req,res)=>{
