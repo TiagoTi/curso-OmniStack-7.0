@@ -16,7 +16,11 @@ module.exports = {
             image
         })
         return res.json(post)
+    },
+
+
+    async index(req, res){
+        const posts = await Post.find().sort('-createdAt')
+        return res.json(posts)
     }
-
-
 }
