@@ -6,6 +6,8 @@ const routes = express.Router()
 
 const PostController = require('./controlles/PostController')
 
+const LikeController = require('./controlles/LikeController')
+
 const uploadConfig = require('./config/upload')
 
 const upload = multer(uploadConfig)
@@ -23,6 +25,11 @@ routes.post('/posts', upload.single('image'), (req,res)=>{
 
 routes.get('/posts', (req,res)=>{
     PostController.index(req, res)
+})
+
+
+routes.post('/posts/:id/likes', (req,res)=>{
+    LikeController.store(req, res)
 })
 
 
