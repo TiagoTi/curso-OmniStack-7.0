@@ -25,3 +25,8 @@ https://serverfault.com/questions/814064/set-jdk-8-as-the-default-java-on-debian
 ```
 sudo apt-get install virtualbox
 ```
+
+## Criar um projeto do react
+```sh
+yarn create react-app frontend
+```
