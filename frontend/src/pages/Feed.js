@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import io from 'socket.io-client'
 
 import './Feed.css'
 
@@ -20,8 +21,20 @@ class Feed extends Component {
         api.post(`/posts/${id}/likes`)
     }
 
+
+    registerToSocket = () => {
+        const socket = io('http://localhost:3333')
+        socket.on('post', newPost =>{
+            this.setState({feed: [newPost, ... this.state.feed]})
+        })
+    }
+
+
     async componentDidMount(){
+        this.registerToSocket()
+
         const response = await api.get('posts');
+
         this.setState({feed: response.data})
     }
 
