@@ -16,6 +16,10 @@ class Feed extends Component {
     }
 
 
+    handleLike = id => {
+        api.post(`/posts/${id}/likes`)
+    }
+
     async componentDidMount(){
         const response = await api.get('posts');
         this.setState({feed: response.data})
@@ -40,7 +44,9 @@ class Feed extends Component {
 
                 <footer>
                     <div className="actions">
-                        <img src={like} alt="Dar like" />
+                        <button onClick={ ()=>this.handleLike(post._id)}>
+                            <img src={like} alt="Dar like" />
+                        </button>
                         <img src={comment} alt="Comentar" />
                         <img src={send} alt="enviar" />
                     </div>
