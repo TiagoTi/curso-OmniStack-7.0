@@ -2,6 +2,9 @@
 
 ## Command History
 ```sh
+## lib que permite que a aplicação seja real time
+yarn add socket.io-client
+
 ## intall lib to request
 yarn add axios
 
