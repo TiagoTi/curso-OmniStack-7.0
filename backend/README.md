@@ -2,6 +2,12 @@
 
 ## Command History
 ```sh
+## permite requisições ral time
+yarn add socket.io
+
+## permite que o front acesse o app mesmo estando em dominios diferente
+yarn add cors
+
 ## perminte manipular imagens
 yarn add sharp
 
