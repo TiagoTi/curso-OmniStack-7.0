@@ -12,6 +12,8 @@ const cors = require('cors')
 
 const app = express()
 
+const server = require('http').Server(app)
+
 app.use(cors())
 
 mongoose.connect(
@@ -33,4 +35,4 @@ app.use(
 app.use(require('./routes'))
 
 
-app.listen(process.env.APP_SERVER_PORT)
+server.listen(process.env.APP_SERVER_PORT)
