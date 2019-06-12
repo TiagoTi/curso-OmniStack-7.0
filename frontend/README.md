@@ -2,6 +2,9 @@
 
 ## Command History
 ```sh
+## intall lib to request
+yarn add axios
+
 ## instala modulo resonsável por rotas
 yarn add react-router-dom
 ```
