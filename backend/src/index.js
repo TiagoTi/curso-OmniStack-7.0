@@ -14,12 +14,19 @@ const app = express()
 
 const server = require('http').Server(app)
 
+const io = require('socket.io')(server)
+
 app.use(cors())
 
 mongoose.connect(
     `mongodb://${process.env.MONGO_DB_HOST}:${process.env.MONGO_DB_PORT}/${process.env.MONGO_DB_NAME}`,
     {useNewUrlParser: true}
 );
+
+app.use((req, res, next)=>{
+    req.io = io
+    next()
+})
 
 
 app.use(
