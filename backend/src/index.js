@@ -8,8 +8,11 @@ const express = require('express')
 
 const mongoose = require('mongoose')
 
+const cors = require('cors')
+
 const app = express()
 
+app.use(cors())
 
 mongoose.connect(
     `mongodb://${process.env.MONGO_DB_HOST}:${process.env.MONGO_DB_PORT}/${process.env.MONGO_DB_NAME}`,
