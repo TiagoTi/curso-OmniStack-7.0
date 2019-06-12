@@ -30,3 +30,13 @@ sudo apt-get install virtualbox
 ```sh
 yarn create react-app frontend
 ```
+
+
+## [Enable Emment JSX](https://medium.com/front-end-weekly/emmet-for-react-vue-in-vs-code-acb9abb3ed5f)
+
+```json
+"emmet.includeLanguages": {
+  "javascript": "javascriptreact",
+  "vue-html": "html"
+}
+```
