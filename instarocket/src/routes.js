@@ -13,6 +13,7 @@ export default createAppContainer(
     createStackNavigator({
         Feed, New
     },{
+        initialRouteName: 'New',
         defaultNavigationOptions: {
             headerTitle: <Image source={logo}  style={{marginHorizontal: 20}}/>,
             headerBackTitle: null,
