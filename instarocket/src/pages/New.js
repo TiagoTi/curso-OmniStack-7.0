@@ -72,6 +72,13 @@ export default class New extends Component {
           value={this.state.hastags}
           onChangeText={hastags => this.setState({ hastags })}
         />
+
+        <TouchableOpacity
+          onPress={() => { }}
+          style={styles.shareButton}
+        >
+          <Text style={styles.selectButtonText}>Compartilhar</Text>
+        </TouchableOpacity>
       </View>
     )
   }
