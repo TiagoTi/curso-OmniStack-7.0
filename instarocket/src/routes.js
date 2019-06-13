@@ -6,5 +6,9 @@ import New  from './pages/New'
 export default createAppContainer(
     createStackNavigator({
         Feed, New
+    },{
+        defaultNavigationOptions: {
+            headerTitle: "InstaRocket"
+        }
     })
 )
