@@ -1,4 +1,7 @@
 ```
+#para poder acessar a camera e galeria de imagem
+yarn add react-native-picker
+
 yarn add socker.io-client
 
 yarn add axios
