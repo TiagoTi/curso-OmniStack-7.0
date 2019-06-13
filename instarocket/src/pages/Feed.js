@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 
 import camera from '../assets/camera.png'
 import more from '../assets/more.png'
@@ -8,6 +8,7 @@ import comment from '../assets/comment.png'
 import send from '../assets/send.png'
 
 import api  from '../services/api'
+import styles from './Styles'
 
 
 export default class Feed extends Component {
@@ -60,15 +61,15 @@ async componentDidMount(){
               
               <View style={styles.feedItemFooter}>
                 <View style={styles.actions}>
-                  <TouchableOpacity onPress={() => {}}>
+                  <TouchableOpacity style={styles.action} onPress={() => {}}>
                     <Image source={like} />
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => {}}>
+                  <TouchableOpacity style={styles.action} onPress={() => {}}>
                     <Image source={comment} />
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => {}}>
+                  <TouchableOpacity style={styles.action} onPress={() => {}}>
                     <Image source={send} />
                   </TouchableOpacity>
                 </View>
@@ -85,5 +86,3 @@ async componentDidMount(){
 
   
 }
-
-const styles = StyleSheet.create({})
