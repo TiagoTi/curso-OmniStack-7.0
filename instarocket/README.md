@@ -1,4 +1,6 @@
 ```
+yarn add socker.io-client
+
 yarn add axios
 
 yarn add react-navigation
