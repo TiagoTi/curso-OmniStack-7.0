@@ -13,6 +13,11 @@ import styles from './Styles'
 
 
 export default class Feed extends Component {
+  state = {
+    feed: []
+  }
+
+
   static navigationOptions = ({ navigation }) => ({
     headerRight: (
       <TouchableOpacity
@@ -24,11 +29,8 @@ export default class Feed extends Component {
   })
 
 
-
-
-
-  state = {
-    feed: []
+  handleLike = id => {
+    api.post(`/posts/${id}/likes`)
   }
 
   registerToSocket = () => {
@@ -50,14 +52,10 @@ export default class Feed extends Component {
 
   async componentDidMount() {
     this.registerToSocket()
-
     const response = await api.get('posts');
-
-
-
     this.setState({ feed: response.data })
-    console.log(response.data)
   }
+
 
   render() {
     return (
@@ -81,7 +79,7 @@ export default class Feed extends Component {
 
               <View style={styles.feedItemFooter}>
                 <View style={styles.actions}>
-                  <TouchableOpacity style={styles.action} onPress={() => { }}>
+                  <TouchableOpacity style={styles.action} onPress={() => this.handleLike(item._id)}>
                     <Image source={like} />
                   </TouchableOpacity>
 
