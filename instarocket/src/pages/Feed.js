@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 
 import camera from '../assets/camera.png'
+import more from '../assets/more.png'
+import like from '../assets/like.png'
+import comment from '../assets/comment.png'
+import send from '../assets/send.png'
+
+
 import api  from '../services/api'
 
 
@@ -16,6 +22,8 @@ export default class Feed extends Component {
     )
   })
 
+  
+
   state = {
     feed: []
 }
@@ -25,15 +33,34 @@ async componentDidMount(){
 
   const response = await api.get('posts');
 
+  
+
   this.setState({feed: response.data})
   console.log(response.data)
 }
 
   render() {
     return (
-        <View >
-        <Text >Welcome to React Feed!!</Text>
+        <View  style={styles.container}>
+        <FlatList 
+          data={this.state.feed}
+          keyExtractor={post => post._id}
+          renderItem={({item})=>(
+            
+            <View style={styles.feedItem}>
+              <View style={styles.userInfo}>
+                <Text style={styles.name}>{item.author}</Text>
+                <Text style={styles.place}>{item.place}</Text>
+              </View>
+            </View>
+
+          )}
+        />
       </View>
     )
   }
+
+  
 }
+
+const styles = StyleSheet.create({})
