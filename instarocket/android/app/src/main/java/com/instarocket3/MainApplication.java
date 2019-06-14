@@ -1,4 +1,4 @@
-package com.instarocket;
+package com.instarocket3;
 
 import android.app.Application;
 
