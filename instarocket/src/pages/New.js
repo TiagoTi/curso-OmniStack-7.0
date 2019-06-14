@@ -14,7 +14,8 @@ export default class New extends Component {
     author: '',
     place: '',
     description: '',
-    hastags: ''
+    hastags: '',
+    preveiw: null
   }
 
 
@@ -26,7 +27,20 @@ export default class New extends Component {
   handleSelectImage = () => {
     ImagePickert.showImagePicker({
       title: "Image para o post"
-    }, upload =>{})
+    }, upload =>{
+      if (upload.error){
+        console.log("Erro ao obter imagem")
+      }else if (upload.didCancel){
+        console.log("Usuairo cancelou a Imagem")
+      } else {
+        const preveiw = {
+          uri: `data:image/jpeg;base64,${upload.data}`
+        }
+
+        this.setState({preveiw})
+      }
+
+    })
   }
 
 
@@ -40,6 +54,8 @@ export default class New extends Component {
         >
           <Text style={styles.selectButtonText}>Selecionar Image</Text>
         </TouchableOpacity>
+
+        {this.state.preveiw && <Image style={styles.preview} source={this.state.preveiw}/>}
 
         <TextInput
           style={styles.input}
