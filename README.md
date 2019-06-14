@@ -40,3 +40,15 @@ yarn create react-app frontend
   "vue-html": "html"
 }
 ```
+
+
+### To Deve
+```
+yarn add eslint -D
+yarn eslint --init
+'❯ To check syntax, find problems, and enforce code style '
+#back
+'❯ CommonJS (require/exports) '
+#front mobli
+'  JavaScript modules (import/export) '
+```
