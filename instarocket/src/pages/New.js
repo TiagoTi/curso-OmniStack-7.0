@@ -37,11 +37,43 @@ export default class New extends Component {
           uri: `data:image/jpeg;base64,${upload.data}`
         }
 
-        this.setState({preveiw})
+        let prefixFileName
+        let fileExtension
+        
+        if(upload.fileName){
+          [prefixFileName, fileExtension] = upload.fileName.split('.')
+          fileExtension = fileExtension.toLowerCase() === 'heic' ? 'jpg' : fileExtension
+        }else{
+          prefixFileName = new Date().getTime()
+          fileExtension = 'jpg'
+        }
+
+        const image = {
+          uri: upload.uri,
+          type: upload.type,
+          name: `${prefixFileName}.${fileExtension}`
+        }
+
+        this.setState({preveiw, image})
       }
 
     })
   }
+
+
+  handleSubmit = async () => {
+    const data = new FormData()
+
+    data.append('image', this.state.image)
+    data.append('author', this.state.author)
+    data.append('place', this.state.place)
+    data.append('description', this.state.description)
+    data.append('hastags', this.state.hastags)
+
+    await api.post('posts', data)
+
+    this.props.navigation.navigate('Feed')
+}
 
 
   render() {
@@ -98,7 +130,7 @@ export default class New extends Component {
         />
 
         <TouchableOpacity
-          onPress={() => { }}
+          onPress={this.handleSubmit}
           style={styles.shareButton}
         >
           <Text style={styles.selectButtonText}>Compartilhar</Text>
