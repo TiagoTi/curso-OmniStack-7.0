@@ -10,8 +10,6 @@ import send from '../assets/send.svg'
 import api from '../services/api'
 
 class Feed extends Component {
-
-
     state = {
         feed: []
     }

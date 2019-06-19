@@ -1,8 +1,9 @@
-import React from 'react'
-import {BrowserRouter} from 'react-router-dom'
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import Routes from './routes'
-import Header from './components/Header'
+import Routes from './routes';
+import Header from './components/Header';
 
 function App() {
   return (
